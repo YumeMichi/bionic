@@ -172,7 +172,11 @@ DEFINE_IFUNC(__memcpy) {
         case kCortexA9:
             RETURN_FUNC(__memcpy_func, __memcpy_a9);
         case kKrait:
+#ifdef CPU_MEMCPY_BASE_OPT_DISABLE
+            RETURN_FUNC(__memcpy_func, __memcpy_a15);
+#else
             RETURN_FUNC(__memcpy_func, __memcpy_krait);
+#endif
         case kCortexA53:
             RETURN_FUNC(__memcpy_func, __memcpy_a53);
         case kCortexA55:

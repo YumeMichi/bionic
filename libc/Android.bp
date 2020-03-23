@@ -1439,6 +1439,16 @@ cc_library_static {
         },
     },
 
+    product_variables: {
+        lineage: {
+            cpu_memcpy_base_opt_disable: {
+                cflags: [
+                    "-DCPU_MEMCPY_BASE_OPT_DISABLE",
+                ],
+            },
+        },
+    },
+
     whole_static_libs: [
         "libc_common",
     ],
